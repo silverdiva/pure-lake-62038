@@ -1,0 +1,87 @@
+//use AJAX instead of an action to keep the data on the same page. 
+$('#loginForm').submit(function(event) {
+
+	//this prevents the POST default action
+	event.preventDefault();
+
+	//establish variables
+	var username = $('#usernameLogin').val(); 
+	var password = $('#passwordLogin').val(); 
+
+	//call the POST action manually to connect with the nodeJS functions
+	$.post('/login', { username: username, password: password }) 
+			//because there is a response on success and failure setup two callbacks
+		  .done(loginComplete)
+		  .fail(loginFailed)		
+});
+
+//callback function for a successful response - notice the order of the parameters
+function loginComplete(res, status, jqXHR) {
+	$('#login').hide();
+	$('#deleteFriend').hide();
+	$('#walkyTalky').show(); 
+	$('#addContactInfo').hide(); 
+	$('.error').html('');
+	$('#messages').hide(); 
+	$('#selectFriend').hide();
+	$('#welcomeMessage').show();
+	$('#welcomeUser').html(res.username);  
+}
+
+//callback function for a failed response - notice the change in the parameter order
+function loginFailed(jqXHR, status, res) {
+	$('.error').html(jqXHR.responseText);
+}
+
+//when a user clicks the link to sign up for an account
+$('#signupLink').click(function(event) {
+	event.preventDefault();
+	$('#login').hide();
+	$('#signup').show();
+	return false;
+});
+
+//use AJAX instead of an action to keep the data on the same page.
+$('#signupForm').submit(function(event) {
+
+	//this prevents the POST default action
+	event.preventDefault(); 
+
+	//establish variables
+	var username = $('#usernameSignup').val();
+	var password = $('#passwordSignup').val();
+	var confirm = $('#confirmSignup').val();
+
+	//verify the form is completed correctly
+	var isVerified = verify(username, password, confirm);
+
+	if(isVerified) {
+		$.post('/createAccount', { username: username, password: password }) 
+		//because there is a reponse on success and failure setup two callbacks
+		.done(signupComplete)
+		.fail(signupFailed)
+	}
+});
+
+//callback function for a successful response - notice the order of the parameters
+function signupComplete(res, status, jqXHR) {
+	$('#signup').hide(); 
+	$('#login').show(); 
+	$('.error').html('');
+}
+
+//callback function for a failed response - notice the change in the parameter order
+function signupFailed(jqXHR, status, res) {
+	$('.error').html(jqXHR.responseText);
+}
+
+function verify(username, password, confirm) {
+	if ((confirm == password) 
+		&& (username != null && username != '')
+		&& (password != null && password != '')) {
+		return true;
+	} else {
+		$('.error').text('There is a problem with your signup. Please try again.');
+		return false;
+	}
+}

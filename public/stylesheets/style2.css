@@ -1,0 +1,72 @@
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: Arial Black,Arial Bold,sans-serif;
+    background-image: url("../IMG_326690.jpg")
+}
+h1{
+    margin: 0%;
+}
+#header{
+    background-image: url("../islandheader2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#headerfilter{
+    padding-top: 20px;
+    padding-bottom: 20px;/*
+    background-image: linear-gradient(to right,#ffffff00, #ffffff);*/
+}
+#logo{
+    max-height: 48pt;
+    padding-left: 20px;
+}
+#navBar{
+    background-color: #000000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.navI{
+    list-style-type: none;
+    color: #ffffff;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.navI:hover{
+    background-color: #ff0000;
+}
+.breadcrumb{
+    visibility: hidden;
+    font-size: 8pt;
+}
+#textwrap{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.postbox{
+    width: 100%;
+    border: #000000 2pt solid;
+    border-radius: 12pt;
+    margin-top: 10pt;
+    margin-bottom: 10pt;
+    background-color: #ffffff9f;
+}
+.postboxhead{
+    width: 100%;
+    background-image: url("../postheader.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 10pt;
+    border-top-right-radius: 10pt;
+    border-bottom: #000000 .5pt solid;
+}
+.usertext{
+    padding-left: 10pt;
+}
+.posttext{
+    padding-left: 10pt;
+}

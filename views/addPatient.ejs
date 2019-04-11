@@ -1,0 +1,54 @@
+<% include partials/header.ejs %>
+	<div class="container">
+		<form class="add-patient-form" action="" method="post" enctype="multipart/form-data">
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<input type="text" class="form-control" name="patient_firstname" id="patient_firstname" placeholder="First Name" required>
+				</div>
+				<div class="form-group col-md-4">
+					<input type="text" class="form-control" name="patient_lastname" id="patient_lastname" placeholder="Last Name" required>
+				</div>
+				<div class="form-group col-md-4">
+					<input type="text" class="form-control" name="patient_email" id="patient_email" placeholder="Email" required>
+				</div>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-4">
+					<input type="patient_phone" class="form-control" name="patient_phone" id="patient_phone" placeholder="Phone" required>
+				</div>
+
+				<div class="form-group col-md-4">
+					<input type="patient_address" class="form-control" name="patient_address" id="patient_address" placeholder="Address" required>
+				</div>
+
+				<select>
+                        <option selected disabled>Choose Patient Doctor</option>
+                        <option>Bruce Wayne</option>
+                        <option>Peter Parker</option>
+                        <option>Steve Rogers</option>
+                        <option>Clark Kent</option>
+                        <option>Barry Allen</option>
+                        <option>Bruce Banner</option>
+                        <option>Billy Batsont</option>
+                        <option>Logan Howlett</option>
+                    </select>
+
+				<div class="form-group col-md-4">
+					<input type="patient_username" class="form-control" name="patient_username" id="patient_username" placeholder="Patient Username" required>
+				</div>
+
+				<select>
+                        <option selected disabled>Choose Patient Status</option>
+                        <option>New Patient</option>
+                        <option>Active Patient</option>
+                        <option>Referred Patient</option>
+                        <option>Inactive Patient</option>
+                    </select>
+			</div>
+			<button type="submit" class="btn btn-primary float-right">Add Patient</button>
+		</form>
+	</div>
+	</body>
+
+	</html>

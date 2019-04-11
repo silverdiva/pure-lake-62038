@@ -1,0 +1,58 @@
+<% include partials/header.ejs %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (patient) { %>
+        <form class="add-patient-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="patient_firstname">First Name</label>
+                    <input type="text" class="form-control" name="patient_firstname" id="patient-firstname" value="<%= patient.patient_firstname %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="patient_lastname">Last Name</label>
+                    <input type="text" class="form-control" name="patient_lastname" id="patient-lastname" value="<%= patient.patient_lastname %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="patient_email">Email</label>
+                    <input type="text" class="form-control" name="patient_email" id="patient_email" value="<%= patient.patient_email %>" required disabled title="Patient Email cannot be edited.">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="patient_phone">Phone</label>
+                    <input type="patient_phone" class="form-control" name="patient_phone" id="patient_phone" placeholder="Phone" value="<%= patient.patient_phone %>" required>
+                </div>
+            <div class="form-row">
+    		<div class="form-group col-md-6">
+                    <label for="patient_address">Address</label>
+                    <input type="patient_address" class="form-control" name="patient_address" id="patient_address" placeholder="Address" value="<%= patient.patient_address %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="patient_doctor">Patient Doctor</label>
+                    <select id="patient_doctor" name="patient_doctor" class="form-control" required>
+                        <option selected><%= patient.patient_doctor %></option>
+                        <option>Peter Parker</option>
+                        <option>Lex Luther</option>
+                        <option>Bruce Wayne</option>
+                        <option>Clark Kent</option>
+                        <option>Tony Stark</option>
+                        <option>Steve Rogers</option>
+                        <option>Bruce Banner</option>
+                        <option>Hal Jordan</option>
+                        <option>illy Batson</option>
+                        <option>Barry Allen</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update Patient</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Patient Not Found. Go <a href="/add">here</a> to add patients.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>
